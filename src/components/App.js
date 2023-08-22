@@ -16,21 +16,16 @@ const App = () => {
   const onSelectEra = (selectedEra) => {
     setEra(selectedEra);
   };
-  const goBackInTime = () => {
-    setYear(year - 1);
-  };
-  const goForwardInTime = () => {
-    setYear(year + 1);
+  const onChangeHandler = (value) => {
+    setYear(value);
   };
   return (
     <div className='app-container'>
       <Header />
-      <YearSelector
-        year={year}
-        goBackInTime={goBackInTime}
-        goForwardInTime={goForwardInTime}
-      />
+      <YearSelector year={year} onChangeHandler={onChangeHandler} />
       <EraBox era={era} onSelectEra={onSelectEra} />
+      <Atlas />
+      <DataCardSelector />
     </div>
   );
 };
